@@ -1,13 +1,17 @@
 *.pyc
 .DS_store
 .idea/
+*.iml
 build/
 dist/
+venv/
 pydruid.egg-info/
 __pycache__
 .cache
 .eggs
 *.egg/
+*.egg
 \#*#
 .#*
 *~
+test.py

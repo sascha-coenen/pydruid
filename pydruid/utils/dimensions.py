@@ -120,6 +120,28 @@ class LookupExtraction(ExtractionFunction):
         return {'type': self.lookup_type}
 
 
+
+class RegisteredLookupExtraction(ExtractionFunction):
+
+    extraction_type = 'registeredLookup'
+    lookup_type = None
+
+    def __init__(self, lookup, retain_missing_values=False, injective=False):
+        super(RegisteredLookupExtraction, self).__init__()
+        self._lookup = lookup
+        self._retain_missing_values = retain_missing_values
+        self._injective = injective
+
+    def build(self):
+        extractor = super(RegisteredLookupExtraction, self).build()
+        extractor['lookup'] = self._lookup
+        extractor['retainMissingValue'] = self._retain_missing_values
+        extractor['injective'] = self._injective
+        return extractor
+
+
+
+
 class MapLookupExtraction(LookupExtraction):
 
     lookup_type = 'map'
